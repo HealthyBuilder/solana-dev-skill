@@ -291,7 +291,7 @@ Use the row that matches your workspace's resolved `solana-*` granular crate ver
 |---|---|---|---|
 | **0.8.2** | `~3.0` | `solana-hash ~3.0`, `solana-vote-interface 4.0`, `solana-system-interface 2.0` | `0.3` (requires `anchor-lang ^1.0.0`, `litesvm ^0.8.2`) |
 | **0.9.1** | `~3.1`–`~3.3` | `solana-hash 4.0`, `solana-vote-interface 5.0`, `solana-system-interface 3.0` | none — `anchor-litesvm 0.3` declares `litesvm ^0.8.2`, 0.4 declares `^0.11.0` |
-| **0.10.0–0.12.0** | `3.x` | `solana-program-runtime ^3.0`, `solana-hash ^3.1` | `0.4` (requires `anchor-lang ^1.0.0`, `litesvm ^0.11.0`) |
+| **0.10.0–0.12.0** | `3.x` | `solana-program-runtime ^3.0`, `solana-hash ^3.1` | `0.4` for `litesvm 0.11.x` only (requires `anchor-lang ^1.0.0`, `litesvm ^0.11.0`); none for `0.10.x` or `0.12.x` |
 | **0.13.0** | Agave 4.0 | `solana-program-runtime ^4.0`, `solana-hash ^4.2`, `solana-message =3.1.0` | none |
 | **0.14.0–0.15.2** | Agave 4.1 | `solana-program-runtime ^4.1.1`, `solana-message ^4.2.4` | none |
 | **0.16.0** | Agave 4.2 | `solana-program-runtime ^4.2.1`, `solana-hash ~4.5.0`; first release that runs v1 transactions | none |

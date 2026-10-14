@@ -80,7 +80,7 @@ const client = await createClient()
   .use(airdropSigner(lamports(1_000_000_000n)));
 ```
 
-**Surfpool**'s `surfpool()` plugin forwards `transactionConfig` to the `solanaLocalRpc` it wraps, so `surfpool({ transactionConfig: { version: 1 } })` plans v1 when the resolved `@solana/kit-plugin-rpc` is 0.19+. `@solana/surfpool` 1.5.0 still declares `@solana/kit ^7` and `@solana/kit-plugin-rpc ^0.15` as optional peers, so expect a peer-range warning until it re-pins — see [surfpool/kit-plugin.md](surfpool/kit-plugin.md).
+**Surfpool**'s `surfpool()` plugin forwards `transactionConfig` to the `solanaLocalRpc` it wraps, so `surfpool({ transactionConfig: { version: 1 } })` plans v1 when the resolved `@solana/kit-plugin-rpc` is 0.19+. `@solana/surfpool` 1.6.1 still declares `@solana/kit-plugin-rpc ^0.18` and `@solana/kit-plugin-signer ^0.18` as optional peers, which exclude 0.19, so expect a peer-range warning until it re-pins — see [surfpool/kit-plugin.md](surfpool/kit-plugin.md).
 
 `client.rpc` is an ordinary kit RPC, so reading the transaction back still needs `maxSupportedTransactionVersion: 1` and, over 1232 bytes, `encoding: 'base64'`.
 

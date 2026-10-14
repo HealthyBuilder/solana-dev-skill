@@ -5,7 +5,7 @@ description: Full reference for all surfnet_* RPC methods to manipulate time, ac
 
 # Surfpool Cheatcodes Reference
 
-All 26 `surfnet_*` JSON-RPC methods available on the surfnet RPC endpoint (default `http://127.0.0.1:8899`), as of Surfpool v1.5.0.
+All 28 `surfnet_*` JSON-RPC methods available on the surfnet RPC endpoint (default `http://127.0.0.1:8899`), as of Surfpool v1.6.1. v1.6.0 added the two confidential-balance methods; nothing was removed or renamed since v1.5.0.
 
 In TypeScript, call these through `client.cheatcodes` from the Kit plugin instead of hand-rolling JSON-RPC — method names drop the `surfnet_` prefix and responses arrive unwrapped. See [kit-plugin.md](kit-plugin.md#typed-cheatcodes). The schemas below are the wire format, shared by both paths.
 
@@ -14,12 +14,19 @@ In TypeScript, call these through `client.cheatcodes` from the Kit plugin instea
 | Method | Description |
 |---|---|
 | `surfnet_setAccount` | Set or update an account's lamports, data, owner, and executable status directly without transactions. |
-| `surfnet_setTokenAccount` | Set or update an SPL token account's balance, delegate, state, and close authority for any mint. |
+| `surfnet_setTokenAccount` | Set or update an SPL token account's balance, delegate, state, and close authority for any mint. Since v1.6.0 it can also set confidential-transfer state on Token-2022 accounts. |
 | `surfnet_resetAccount` | Reset an account to its original state from the remote datasource. Optionally cascades to owned accounts. |
 | `surfnet_streamAccount` | Register an account for live streaming — re-fetches from remote datasource on every access instead of caching. |
 | `surfnet_streamAccounts` | Register multiple accounts for live streaming in a single call. |
 | `surfnet_getStreamedAccounts` | List all accounts currently registered for streaming. |
 | `surfnet_offlineAccount` | Pin an account as local-only — it is never re-fetched from the remote datasource. |
+
+## Confidential Balances (v1.6.0+)
+
+| Method | Description |
+|---|---|
+| `surfnet_deriveConfidentialKeys` | Derive an owner's confidential-transfer keys from the owner's signature. Returns base58 `elgamalPubkey` (for `surfnet_setTokenAccount`), `elgamalSecretKey` (for `surfnet_getConfidentialBalance`), and `aesKey` (for both), so a test needs no client-side ZK crypto. |
+| `surfnet_getConfidentialBalance` | Decrypt a Token-2022 confidential account's `available` and `pending` balances with the supplied `aesKey` / `elgamalSecretKey`. Also returns `pendingBalanceCreditCounter`; non-zero means an `ApplyPendingBalance` is still needed. |
 
 ## Program Management
 

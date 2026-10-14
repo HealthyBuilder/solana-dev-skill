@@ -2,6 +2,17 @@
 
 Versions track the `metadata.version` field in `skills/solana-dev/SKILL.md`. Earlier releases predate this file; see the git history.
 
+## 2.7.0 — 2026-10-14
+
+web3.js v3 is out of release candidate, solana-go's v1-transaction support is documented for both module lines, and the Rust toolchain and local-testing references move to Agave 4.3, LiteSVM 0.18, Mollusk 0.16 and Surfpool 1.6.1.
+
+- compatibility-matrix.md: Agave 4.3.x is the stable channel and 4.4.x the beta, with 4.2.x marked superseded. Notes the 5.x `solana-*` crate line (`solana-sdk` 5.0, `solana-message` 5.1), which pairs with Agave 4.4. Agave 4.3, LiteSVM and Mollusk still use the 4.x crates. The `agave-validator` binary is still not in the release tarballs.
+- compatibility-matrix.md and testing.md: the Anchor 1.2.x / 1.1.x combinations now list `litesvm` 0.18.0 (MSRV 1.97.1; 0.17.x for older host toolchains) and `mollusk-svm` 0.16.2. The LiteSVM crate table covers 0.10 through 0.18 and their Agave eras. `anchor-litesvm` 0.4 pairs only with `litesvm` 0.11.x, and no release covers 0.13+.
+- testing.md: upgrade notes for LiteSVM 0.17 and 0.18 (removed `get_feature_set`, the new `loaded_accounts_data_size` field, the SIMD-0437/0438 rent gates) and for Mollusk 0.15 and 0.16 (the payer argument, rent-exemption checks on by default, and the `mollusk-svm-account` builders).
+- anchor/migrating-v0.32-to-v1.md: the litesvm dev-dependency table points at `anchor-litesvm` 0.4 and the matrix.
+- surfpool/*: Surfpool v1.6.1. The cheatcode reference grows from 26 to 28 methods with `surfnet_deriveConfidentialKeys` and `surfnet_getConfidentialBalance`. Also covers the `surfpool stop` subcommand, the default slot time change from 400 ms to 250 ms, disposable embedded Kit clients (`using`), and the 1.6.1 optional peer ranges (`kit-plugin-rpc` / `-signer` `^0.18`). The reference also documents the parameters of the confidential cheatcodes and `setTokenAccount`'s `confidential` field, with an end-to-end example, and corrects `setTokenAccount`'s update keys to camelCase (`delegatedAmount`, `closeAuthority`).
+- compatibility-matrix.md and common-errors.md: the LiteSVM npm table now covers 1.3–1.6, including the gnu and musl binaries and the Node ≥20 requirement. The litesvm 0.5.0 GLIBC failure is kept only as history. Advice to fall back to the deprecated `solana-bankrun` or to litesvm 0.3.x is removed.
+
 ## 2.6.0 — 2026-10-07
 
 Anchor 1.2.1 is now the recommended version, and Anchor links point at its new home, `otter-sec/anchor`.

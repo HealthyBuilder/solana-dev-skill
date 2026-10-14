@@ -2,9 +2,9 @@
 
 Versions track the `metadata.version` field in `skills/solana-dev/SKILL.md`. Earlier releases predate this file; see the git history.
 
-## 2.6.1 — 2026-10-14
+## 2.7.0 — 2026-10-14
 
-Rust toolchain and local-testing versions for Oct 2026: Agave 4.3 stable, LiteSVM 0.18, Mollusk 0.16, Surfpool 1.6.1.
+web3.js v3 is out of release candidate, solana-go's v1-transaction support is documented for both module lines, and the Rust toolchain and local-testing references move to Agave 4.3, LiteSVM 0.18, Mollusk 0.16 and Surfpool 1.6.1.
 
 - compatibility-matrix.md: Agave 4.3.x is the stable channel and 4.4.x the beta, with 4.2.x marked superseded. Notes the 5.x `solana-*` crate line (`solana-sdk` 5.0, `solana-message` 5.1), which pairs with Agave 4.4. Agave 4.3, LiteSVM and Mollusk still use the 4.x crates. The `agave-validator` binary is still not in the release tarballs.
 - compatibility-matrix.md and testing.md: the Anchor 1.2.x / 1.1.x combinations now list `litesvm` 0.18.0 (MSRV 1.97.1; 0.17.x for older host toolchains) and `mollusk-svm` 0.16.2. The LiteSVM crate table covers 0.10 through 0.18 and their Agave eras. `anchor-litesvm` 0.4 pairs only with `litesvm` 0.11.x, and no release covers 0.13+.

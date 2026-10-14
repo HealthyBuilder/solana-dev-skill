@@ -68,7 +68,7 @@ skills/solana-dev/
 └── references/
     ├── kit/                         # @solana/kit: overview, plugins, react, codecs, accounts, codama, gotchas, advanced, programs/
     ├── frontend.md                  # UI patterns (Kit wallet plugin + @solana/react)
-    ├── kit-web3-interop.md          # Legacy web3.js routing (v3 RC + migration skill)
+    ├── kit-web3-interop.md          # Legacy web3.js routing (v3 + migration skill)
     ├── testing.md                   # Testing (Surfpool/LiteSVM/Mollusk)
     ├── idl-codegen.md               # IDL and client generation
     ├── payments.md                  # Payments (Kit, Solana Pay, Kora)
